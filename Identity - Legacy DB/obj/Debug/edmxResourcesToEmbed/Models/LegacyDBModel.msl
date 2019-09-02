@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LogiClaimBranchModelStoreContainer" CdmEntityContainer="LogiClaimBranchEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LogiClaimBranchModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="DefaultInsolvencyPractitionerID" ColumnName="DefaultInsolvencyPractitionerID" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="LastModifiedByUserID" ColumnName="LastModifiedByUserID" />
+          <ScalarProperty Name="ForcePasswordReset" ColumnName="ForcePasswordReset" />
+          <ScalarProperty Name="CallbackMaxWorkingDaysAhead" ColumnName="CallbackMaxWorkingDaysAhead" />
+          <ScalarProperty Name="EndWorkTime" ColumnName="EndWorkTime" />
+          <ScalarProperty Name="StartWorkTime" ColumnName="StartWorkTime" />
+          <ScalarProperty Name="IsTeamUser" ColumnName="IsTeamUser" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="UserTemplateID" ColumnName="UserTemplateID" />
+          <ScalarProperty Name="ViewAllUsers" ColumnName="ViewAllUsers" />
+          <ScalarProperty Name="PasswordIsEncrytped" ColumnName="PasswordIsEncrytped" />
+          <ScalarProperty Name="LogonToPortal" ColumnName="LogonToPortal" />
+          <ScalarProperty Name="LogonToWindowsApplication" ColumnName="LogonToWindowsApplication" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="IntroducerID" ColumnName="IntroducerID" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="Deletable" ColumnName="Deletable" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LogiClaimBranchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Deletable" Type="bit" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="IntroducerID" Type="int" />
+          <Property Name="UserTypeID" Type="int" />
+          <Property Name="JobTitle" Type="varchar(max)" />
+          <Property Name="TeamID" Type="int" />
+          <Property Name="LogonToWindowsApplication" Type="bit" />
+          <Property Name="LogonToPortal" Type="bit" />
+          <Property Name="PasswordIsEncrytped" Type="bit" />
+          <Property Name="ViewAllUsers" Type="bit" Nullable="false" />
+          <Property Name="UserTemplateID" Type="int" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" />
+          <Property Name="IsTeamUser" Type="bit" Nullable="false" />
+          <Property Name="StartWorkTime" Type="datetime" />
+          <Property Name="EndWorkTime" Type="datetime" />
+          <Property Name="CallbackMaxWorkingDaysAhead" Type="int" Nullable="false" />
+          <Property Name="ForcePasswordReset" Type="bit" Nullable="false" />
+          <Property Name="LastModifiedByUserID" Type="int" />
+          <Property Name="LastModifiedTime" Type="datetime" />
+          <Property Name="DefaultInsolvencyPractitionerID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Users_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Users1" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Users1">
+              <PropertyRef Name="LastModifiedByUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LogiClaimBranchModelStoreContainer">
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Users_Users" Association="Self.FK_Users_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Users1" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LogiClaimBranchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LogiClaimBranchEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="LogiClaimBranchModel.User" />
+          <AssociationSet Name="FK_Users_Users" Association="LogiClaimBranchModel.FK_Users_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="User1" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Deletable" Type="Boolean" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="IntroducerID" Type="Int32" />
+          <Property Name="UserTypeID" Type="Int32" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TeamID" Type="Int32" />
+          <Property Name="LogonToWindowsApplication" Type="Boolean" />
+          <Property Name="LogonToPortal" Type="Boolean" />
+          <Property Name="PasswordIsEncrytped" Type="Boolean" />
+          <Property Name="ViewAllUsers" Type="Boolean" Nullable="false" />
+          <Property Name="UserTemplateID" Type="Int32" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsTeamUser" Type="Boolean" Nullable="false" />
+          <Property Name="StartWorkTime" Type="DateTime" Precision="3" />
+          <Property Name="EndWorkTime" Type="DateTime" Precision="3" />
+          <Property Name="CallbackMaxWorkingDaysAhead" Type="Int32" Nullable="false" />
+          <Property Name="ForcePasswordReset" Type="Boolean" Nullable="false" />
+          <Property Name="LastModifiedByUserID" Type="Int32" />
+          <Property Name="LastModifiedTime" Type="DateTime" Precision="3" />
+          <Property Name="DefaultInsolvencyPractitionerID" Type="Int32" />
+          <NavigationProperty Name="Users1" Relationship="LogiClaimBranchModel.FK_Users_Users" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User1" Relationship="LogiClaimBranchModel.FK_Users_Users" FromRole="User1" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Users_Users">
+          <End Type="LogiClaimBranchModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="LogiClaimBranchModel.User" Role="User1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="LastModifiedByUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LogiClaimBranchModelStoreContainer" CdmEntityContainer="LogiClaimBranchEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LogiClaimBranchModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="DefaultInsolvencyPractitionerID" ColumnName="DefaultInsolvencyPractitionerID" />
+                <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+                <ScalarProperty Name="LastModifiedByUserID" ColumnName="LastModifiedByUserID" />
+                <ScalarProperty Name="ForcePasswordReset" ColumnName="ForcePasswordReset" />
+                <ScalarProperty Name="CallbackMaxWorkingDaysAhead" ColumnName="CallbackMaxWorkingDaysAhead" />
+                <ScalarProperty Name="EndWorkTime" ColumnName="EndWorkTime" />
+                <ScalarProperty Name="StartWorkTime" ColumnName="StartWorkTime" />
+                <ScalarProperty Name="IsTeamUser" ColumnName="IsTeamUser" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="UserTemplateID" ColumnName="UserTemplateID" />
+                <ScalarProperty Name="ViewAllUsers" ColumnName="ViewAllUsers" />
+                <ScalarProperty Name="PasswordIsEncrytped" ColumnName="PasswordIsEncrytped" />
+                <ScalarProperty Name="LogonToPortal" ColumnName="LogonToPortal" />
+                <ScalarProperty Name="LogonToWindowsApplication" ColumnName="LogonToWindowsApplication" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="IntroducerID" ColumnName="IntroducerID" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="Deletable" ColumnName="Deletable" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LogiClaimBranchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LogiClaimBranchEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="LogiClaimBranchModel.User" />
+    <AssociationSet Name="FK_Users_Users" Association="LogiClaimBranchModel.FK_Users_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User1" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Deletable" Type="Boolean" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="IntroducerID" Type="Int32" />
+    <Property Name="UserTypeID" Type="Int32" />
+    <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TeamID" Type="Int32" />
+    <Property Name="LogonToWindowsApplication" Type="Boolean" />
+    <Property Name="LogonToPortal" Type="Boolean" />
+    <Property Name="PasswordIsEncrytped" Type="Boolean" />
+    <Property Name="ViewAllUsers" Type="Boolean" Nullable="false" />
+    <Property Name="UserTemplateID" Type="Int32" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsTeamUser" Type="Boolean" Nullable="false" />
+    <Property Name="StartWorkTime" Type="DateTime" Precision="3" />
+    <Property Name="EndWorkTime" Type="DateTime" Precision="3" />
+    <Property Name="CallbackMaxWorkingDaysAhead" Type="Int32" Nullable="false" />
+    <Property Name="ForcePasswordReset" Type="Boolean" Nullable="false" />
+    <Property Name="LastModifiedByUserID" Type="Int32" />
+    <Property Name="LastModifiedTime" Type="DateTime" Precision="3" />
+    <Property Name="DefaultInsolvencyPractitionerID" Type="Int32" />
+    <NavigationProperty Name="Users1" Relationship="LogiClaimBranchModel.FK_Users_Users" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="User1" Relationship="LogiClaimBranchModel.FK_Users_Users" FromRole="User1" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Users_Users">
+    <End Type="LogiClaimBranchModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="LogiClaimBranchModel.User" Role="User1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="LastModifiedByUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
